@@ -1,0 +1,310 @@
+@use "./variables" as vars;
+
+.second-grid {
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  color: whitesmoke;
+  margin: 15px auto;
+  width: 85%;
+
+  .grid-title {
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-bottom: 1rem;
+  }
+
+  .beat-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: .5rem;
+  }
+
+  .card-beat {
+    // background-color: #1e1e1e;
+    color: #fff;
+    border-radius: 4px;
+    // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    padding: 1rem;
+    text-align: center;
+    z-index: 0;
+
+    &:hover {
+      // transform: scale(1.05);
+      // box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      background-color: #1e1e1e;
+
+
+      .audio-play-button {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    .card-image {
+      width: 90%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+
+      &:hover {
+        background-color: #1e1e1e;
+        opacity: 1;
+
+      }
+    }
+
+    .card-details {
+      padding: 0.5rem;
+      text-align: center;
+      z-index: 2;
+
+      .card-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin: 0.5rem 0;
+      }
+
+      .card-subtitle {
+        font-size: 1rem;
+        color: #b3b3b3;
+      }
+    }
+
+    .audio-play-button {
+      position: absolute;
+      top: 30%;
+      left: 30%;
+      // transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #ff9900;
+      font-size: 3rem;
+      /* Adjust size as needed */
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      /* Optional: keep consistent with button size */
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s, transform 0.3s;
+
+      &:hover {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+
+      i {
+        font-size: 2rem;
+        /* Icon size */
+        transition: color 0.3s;
+      }
+
+      &:active {
+        transform: scale(1);
+      }
+    }
+
+    .card-beat:hover .audio-play-button {
+      opacity: 1;
+      visibility: visible;
+    }
+
+  }
+}
+
+.third-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: vars.$base-margin * 2;
+  color: vars.$white;
+  padding: vars.$base-padding * 2.5;
+
+  .topsongs {
+    width: 48%;
+    padding: vars.$base-padding * 5;
+
+    h1 {
+      margin-bottom: vars.$base-margin * 2;
+      font-size: vars.$font-size-lg;
+    }
+
+    .list {
+      display: flex;
+      flex-direction: column;
+      // gap: vars.$base-margin * 2;
+
+      .item {
+        border-bottom: .5px solid white;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        // background-color: vars.$gray;
+        padding: vars.$base-padding;
+        // border-radius: vars.$base-border-radius;
+        // box-shadow: vars.$base-box-shadow;
+        position: relative;
+
+        .item-image-container {
+          position: relative;
+
+          .item-image {
+            height: 40px;
+            width: 40px;
+            object-fit: cover;
+            // border-radius: vars.$base-border-radius;
+          }
+
+          .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            color: vars.$primary;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+          }
+
+          &:hover .play-button {
+            display: flex;
+          }
+        }
+
+        .item-info {
+          flex: 1;
+          margin-left: vars.$base-margin ;
+          text-align: left;
+
+          h3 {
+            font-size: vars.$font-size-sm;
+            color: vars.$white;
+          }
+
+          p {
+            font-size: vars.$font-size-sm;
+            color: vars.$white;
+          }
+        }
+
+        .add-button {
+          background-color: vars.$primary;
+          color: vars.$white;
+          border: none;
+          padding: vars.$base-padding vars.$base-padding *2;
+          border-radius: vars.$base-border-radius * .5;
+          cursor: pointer;
+
+          &:hover {
+            background-color: vars.$secondary;
+          }
+        }
+      }
+    }
+  }
+
+  // **Responsive Design**
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+
+    .topsongs {
+      width: 80%;
+      padding: vars.$base-padding * 3;
+
+      h1 {
+        font-size: vars.$font-size-lg;
+      }
+
+      .list {
+        .item {
+          flex-direction: column;
+          text-align: center;
+          // padding: vars.$base-padding * 1.5;
+
+          .item-image-container {
+            margin-bottom: vars.$base-margin;
+          }
+
+          .item-info {
+
+            text-align: left;
+          }
+
+          .add-button {
+            width: 50px;
+            padding: vars.$base-padding;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .topsongs {
+      width: 100%;
+      padding: 0;
+
+      h1 {
+        font-size: vars.$font-size-xl;
+        text-align: left;
+      }
+
+      .list {
+        .item {
+          flex-direction: row;
+          justify-content: space-between;
+          // padding: vars.$base-padding;
+          background-color: inherit;
+
+          .item-image-container {
+            width: 60px;
+            height: 60px;
+
+            .item-image {
+              height: 60px;
+              width: 60px;
+              border-radius: 0;
+            }
+
+            .play-button {
+              font-size: 1rem;
+              padding: 0.3rem;
+            }
+          }
+
+          .item-info {
+            flex: 1;
+
+            h3 {
+              font-size: vars.$font-size-sm;
+            }
+
+            p {
+              font-size: vars.$font-size-sm;
+            }
+          }
+
+          .add-button {
+            font-size: vars.$font-size-sm;
+            padding: vars.$base-padding * 0.75;
+            margin-left: -20px;
+          }
+        }
+      }
+    }
+  }
+}

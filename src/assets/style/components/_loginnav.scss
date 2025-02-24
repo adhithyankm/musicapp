@@ -1,0 +1,165 @@
+@use "./variables" as vars;
+
+.loginlanding-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: Arvo;
+  background-color: vars.$black;
+  color: vars.$Neon;
+  padding: vars.$base-padding * 2;
+
+  .loginlanding-title {
+    text-align: center;
+    font-family: Caveat;
+    font-size: vars.$font-size-xl * 2;
+    color: vars.$primary;
+    margin-bottom: vars.$base-margin * 2;
+    letter-spacing: 2px;
+  }
+
+  .Log-in {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: vars.$base-padding * 2;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: vars.$black;
+    border-radius: vars.$base-border-radius;
+    box-shadow: vars.$base-box-shadow;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+
+    .Login-title {
+      text-align: center;
+      font-size: vars.$font-size-lg;
+      font-weight: bold;
+      color: vars.$secondary;
+    }
+
+    hr {
+      margin: 10px 0;
+      border: none;
+      border-top: 1px solid vars.$gray;
+    }
+
+    form {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: vars.$base-margin;
+
+      .input-group {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          margin-bottom: 5px;
+          font-weight: bold;
+          font-size: vars.$font-size-sm;
+          color: vars.$gray;
+        }
+
+        input {
+          padding: vars.$base-padding;
+          font-size: vars.$font-size-sm;
+          border-radius: vars.$base-border-radius;
+          border: vars.$base-border-thickness solid vars.$gray;
+          background-color: transparent;
+          color: vars.$black;
+        }
+
+        small {
+          margin-top: 5px;
+          color: vars.$error;
+          font-size: vars.$font-size-sm;
+        }
+      }
+
+      button {
+        margin-top: 10px;
+        padding: vars.$base-padding;
+        background-color: vars.$primary;
+        color: vars.$white;
+        font-weight: bold;
+        border: none;
+        border-radius: vars.$base-border-radius;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: vars.$BrightCyan;
+        }
+
+        &.secondary {
+          background-color: vars.$secondary;
+          margin-top: vars.$base-margin;
+
+          &:hover {
+            background-color: vars.$Neon;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 📱 Responsive Styles
+@media (max-width: 1024px) {
+  .loginlanding-content {
+    .loginlanding-title {
+      font-size: vars.$font-size-xl * 1.5;
+      margin-bottom: vars.$base-margin * 1.5;
+    }
+
+    .Log-in {
+      width: 90%;
+      padding: vars.$base-padding * 2;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .loginlanding-content {
+    .loginlanding-title {
+      font-size: vars.$font-size-lg;
+    }
+
+    .Log-in {
+      max-width: 100%;
+    }
+
+    form {
+      button {
+        font-size: vars.$font-size-sm;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .loginlanding-content {
+    padding: vars.$base-padding;
+
+    .loginlanding-title {
+      font-size: vars.$font-size-xl;
+    }
+
+    .Log-in {
+      padding: vars.$base-padding;
+    }
+
+    form {
+      .input-group label {
+        font-size: vars.$font-size-sm;
+      }
+
+      button {
+        padding: vars.$base-padding * 0.5;
+      }
+    }
+  }
+}
