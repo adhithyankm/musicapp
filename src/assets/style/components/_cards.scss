@@ -34,7 +34,7 @@
     &:hover {
       // transform: scale(1.05);
       // box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-      background-color: #1e1e1e;
+      // background-color: #1e1e1e;
 
 
       .audio-play-button {
@@ -52,6 +52,11 @@
       &:hover {
         background-color: #1e1e1e;
         opacity: 1;
+        visibility: visible;
+
+      }
+      @media (max-width: 768px) {
+      height: 125px;
 
       }
     }
@@ -76,16 +81,14 @@
     .audio-play-button {
       position: absolute;
       top: 30%;
-      left: 30%;
+      left: 37%;
       // transform: translate(-50%, -50%);
       background-color: rgba(255, 255, 255, 0.8);
       color: #ff9900;
       font-size: 3rem;
-      /* Adjust size as needed */
       border: none;
       border-radius: 50%;
       width: 60px;
-      /* Optional: keep consistent with button size */
       height: 60px;
       display: flex;
       justify-content: center;
@@ -140,30 +143,20 @@
     .list {
       display: flex;
       flex-direction: column;
-      // gap: vars.$base-margin * 2;
-
       .item {
         border-bottom: .5px solid white;
-
         display: flex;
         align-items: center;
         justify-content: space-between;
-        // background-color: vars.$gray;
         padding: vars.$base-padding;
-        // border-radius: vars.$base-border-radius;
-        // box-shadow: vars.$base-box-shadow;
         position: relative;
-
         .item-image-container {
           position: relative;
-
           .item-image {
             height: 40px;
             width: 40px;
             object-fit: cover;
-            // border-radius: vars.$base-border-radius;
           }
-
           .play-button {
             position: absolute;
             top: 50%;
@@ -178,28 +171,29 @@
             cursor: pointer;
             display: none;
           }
-
           &:hover .play-button {
             display: flex;
           }
         }
-
         .item-info {
           flex: 1;
           margin-left: vars.$base-margin ;
           text-align: left;
-
           h3 {
             font-size: vars.$font-size-sm;
             color: vars.$white;
           }
-
           p {
             font-size: vars.$font-size-sm;
             color: vars.$white;
           }
         }
-
+        .like-button {
+          background-color: inherit;
+          margin-right: 20px;
+          border: none;
+          color: white;
+        }
         .add-button {
           background-color: vars.$primary;
           color: vars.$white;
@@ -207,7 +201,6 @@
           padding: vars.$base-padding vars.$base-padding *2;
           border-radius: vars.$base-border-radius * .5;
           cursor: pointer;
-
           &:hover {
             background-color: vars.$secondary;
           }
@@ -215,45 +208,43 @@
       }
     }
   }
-
   // **Responsive Design**
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    align-items: center;
+  // @media (max-width: 1024px) {
+  //   flex-direction: column;
+  //   align-items: center;
 
-    .topsongs {
-      width: 80%;
-      padding: vars.$base-padding * 3;
+  //   .topsongs {
+  //     width: 80%;
+  //     padding: vars.$base-padding * 3;
 
-      h1 {
-        font-size: vars.$font-size-lg;
-      }
+  //     h1 {
+  //       font-size: vars.$font-size-lg;
+  //     }
 
-      .list {
-        .item {
-          flex-direction: column;
-          text-align: center;
-          // padding: vars.$base-padding * 1.5;
+  //     .list {
+  //       .item {
+  //         flex-direction: column;
+  //         text-align: center;
+  //         // padding: vars.$base-padding * 1.5;
 
-          .item-image-container {
-            margin-bottom: vars.$base-margin;
-          }
+  //         .item-image-container {
+  //           margin-bottom: vars.$base-margin;
+  //         }
 
-          .item-info {
+  //         .item-info {
 
-            text-align: left;
-          }
+  //           text-align: left;
+  //         }
 
-          .add-button {
-            width: 50px;
-            padding: vars.$base-padding;
-          }
-        }
-      }
-    }
-  }
-
-  @media (max-width: 768px) {
+  //         .add-button {
+  //           width: 50px;
+  //           padding: vars.$base-padding;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+  @media (max-width: 998px) {
     .topsongs {
       width: 100%;
       padding: 0;
@@ -267,37 +258,32 @@
         .item {
           flex-direction: row;
           justify-content: space-between;
-          // padding: vars.$base-padding;
           background-color: inherit;
-
           .item-image-container {
             width: 60px;
             height: 60px;
-
             .item-image {
               height: 60px;
               width: 60px;
               border-radius: 0;
             }
-
             .play-button {
               font-size: 1rem;
               padding: 0.3rem;
             }
           }
-
           .item-info {
             flex: 1;
-
             h3 {
               font-size: vars.$font-size-sm;
             }
-
             p {
               font-size: vars.$font-size-sm;
             }
           }
-
+          .like-button {
+            background-color: red;
+          }
           .add-button {
             font-size: vars.$font-size-sm;
             padding: vars.$base-padding * 0.75;

@@ -8,6 +8,8 @@
   align-items: center;
   padding: vars.$base-padding; 
   position: relative;
+  z-index: 1;
+  top: 0;
 
   .logo {
     display: flex;
@@ -25,23 +27,19 @@
       margin-left: 0.5rem;
     }
   }
-
   .hamburger {
     display: none;
     cursor: pointer;
-
     .pi {
       font-size: 24px;
       color: white;
     }
   }
-
   .header-nav-list {
     display: flex;
     align-items: center;
     gap: vars.$base-margin;
     list-style: none;
-
     .nav-links {
       padding: vars.$base-padding;
       border-radius: vars.$base-border-radius;
@@ -50,8 +48,6 @@
       color: white;
       cursor: pointer;
       transition: background-color 0.3s;
-
-
       &:hover {
         background-color: rgb(46, 43, 43);
       }
@@ -62,19 +58,25 @@
         &:hover {
           background-color: rgb(46, 43, 43);
         }
-
       }
     }
   }
-
   @media (max-width: 768px) {
     .hamburger {
       display: block;
+      cursor: pointer;
+      position: relative; 
+      z-index: 20; 
+    
+      .pi {
+        font-size: 24px;
+        color: white;
+      }
     }
-
+  
     .header-nav-list {
       position: absolute;
-      top: 100%;
+      top: 0;
       right: 0;
       background-color: vars.$primary;
       flex-direction: column;
@@ -82,15 +84,24 @@
       height: 100vh;
       padding-top: 2rem;
       transform: translateX(110%);
-      transition: transform 0.3s ease-in-out;
+      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
       box-shadow: vars.$base-box-shadow;
       z-index: 11;
       overflow: hidden;
-
+  
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+  
       &.active {
+        display: flex;
         transform: translateX(0);
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease-in;
       }
-
+  
       .nav-links {
         width: 100%;
         text-align: center;
@@ -98,13 +109,13 @@
       }
     }
   }
+  
 }
 
 .landingpage {
   min-height: 100vh;
   background-color: vars.$white;
   color: vars.$black;
-
   .landing-header {
     position: fixed;
     top: 0;
@@ -112,7 +123,6 @@
     background-color: vars.$white;
     box-shadow: vars.$base-box-shadow;
     z-index: 100;
-
     .landing-Nav {
       display: flex;
       justify-content: space-between;
