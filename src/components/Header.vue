@@ -8,14 +8,15 @@
       <i class="pi pi-bars"></i>
     </div>
     <ul class="header-nav-list" :class="{ active: isMenuOpen }">
-      <li class="nav-links">Home</li>
-      <li class="nav-links">Feed</li>
+      <li class="nav-links"><router-link to="/home">Home</router-link></li>
+     
+      <li class="nav-links"><router-link to="/favourites">Favourites <i class="pi pi-heart-fill"></i></router-link></li>
       <li class="nav-links">Beats</li>
       <li class="nav-links">Songs</li>
-      <li class="nav-links">Search</li>
+      <li class="nav-links">Search <i class="pi pi-search"></i></li>
       <li v-if="currentUser.isLoggedIn" class="nav-links">Welcome, {{ currentUser.name }}</li>
       <li v-if="currentUser.isLoggedIn" class="nav-links">
-        <span><button @click="handleLogOut">Log Out</button></span>
+        <span><button @click="handleLogOut">Log Out <i class="pi pi-sign-out" style="font-weight:bolder"></i></button></span>
       </li>
     </ul>
   </nav>

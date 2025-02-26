@@ -19,10 +19,8 @@
   }
 
   .card-beat {
-    // background-color: #1e1e1e;
     color: #fff;
     border-radius: 4px;
-    // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     position: relative;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -32,11 +30,6 @@
     z-index: 0;
 
     &:hover {
-      // transform: scale(1.05);
-      // box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-      // background-color: #1e1e1e;
-
-
       .audio-play-button {
         opacity: 1;
         visibility: visible;
@@ -194,7 +187,7 @@
           border: none;
           color: white;
         }
-        .add-button {
+        .download-button {
           background-color: vars.$primary;
           color: vars.$white;
           border: none;
@@ -280,9 +273,6 @@
             p {
               font-size: vars.$font-size-sm;
             }
-          }
-          .like-button {
-            background-color: red;
           }
           .add-button {
             font-size: vars.$font-size-sm;

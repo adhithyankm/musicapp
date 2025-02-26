@@ -1,3 +1,4 @@
+import Favourites from '@/components/Favourites.vue'
 import LandingPage from '@/components/LandingPage.vue'
 import LoginPage from '@/components/LoginPage.vue'
 import MusicComponent from '@/components/MusicComponent.vue'
@@ -8,7 +9,8 @@ const router = createRouter({
   routes: [
     { path: '/',component:LandingPage },
     { path: '/login',component:LoginPage},
-    { path: '/home',component:MusicComponent}
+    { path: '/home',component:MusicComponent},
+    { path: '/favourites',component:Favourites}
   ],
 })
 
