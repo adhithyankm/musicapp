@@ -14,8 +14,8 @@
             <h3>{{ beat.title }}</h3>
             <p>{{ beat.subtitle }}</p>
           </div>
-          <button class="like-button" @click="toggleLike(beat)">
-            <i :class="isLiked(beat.id) ? 'pi pi-heart-fill' : 'pi pi-heart'"></i>
+          <button class="like-button" @click="toggleLike(beat, 'beats')">
+            <i :class="['pi', isLiked(beat, 'beats') ? 'pi-heart-fill liked' : 'pi-heart']"></i>
           </button>
         </div>
       </div>
@@ -35,8 +35,8 @@
             <h3>{{ song.title }}</h3>
             <p>{{ song.subtitle }}</p>
           </div>
-          <button class="like-button" @click="toggleLike(song)">
-            <i :class="isLiked(song.id) ? 'pi pi-heart-fill' : 'pi pi-heart'"></i>
+          <button class="like-button" @click="toggleLike(song, 'music')">
+            <i :class="['pi', isLiked(song, 'music') ? 'pi-heart-fill liked' : 'pi-heart']"></i>
           </button>
         </div>
       </div>
@@ -45,22 +45,28 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import store from "@/store";
+import store from '@/store';
+
 const props = defineProps({
   beats: Array,
   music: Array,
-  togglePlay: Function,
+  togglePlay: Function, // Passed as a prop from the parent component
 });
 
-
-
-// Toggle Like Function
-const toggleLike = (song) => {
-  store.commit("toggleLike", song);
-  
+const toggleLike = (item, type) => {
+  console.log("Toggling Like for:", item, "Type:", type);
+  store.commit("toggleLike", { ...item, type });
+  console.log(store.getters.likedSongs);
 };
 
-// Check if song is liked
-const isLiked = (id) => computed(() => store.getters.isLiked(id));
+const isLiked = (item, type) => {
+  return store.getters.isLiked(item, type);
+};
 </script>
+
+
+<style scoped>
+.liked {
+  color: red !important;
+}
+</style>

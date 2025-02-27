@@ -14,7 +14,7 @@
     position: absolute;
     top: 42%;
     left: 5%;
-    color: vars.$yellow;
+    color: #F5F7FA;
     font-style: italic;
 
     .image{
@@ -42,7 +42,7 @@
     position: absolute;
     top: 80%; 
     left: 15%; 
-    background-color: vars.$primary; 
+    background-color: vars.$darkgrey; 
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
     color: vars.$white; 
     font-size:medium; 
@@ -63,6 +63,9 @@
 
     &:active {
       transform: scale(0.95); /* Slightly shrink on click */
+    }
+    @media (max-width:768px){
+      left: 70%;
     }
   }
 }

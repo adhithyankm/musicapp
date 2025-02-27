@@ -8,11 +8,9 @@
       <i class="pi pi-bars"></i>
     </div>
     <ul class="header-nav-list" :class="{ active: isMenuOpen }">
-      <li class="nav-links"><router-link to="/home">Home</router-link></li>
+      <li class="nav-links"><router-link to="/home"> <i class="pi pi-home mr-2"></i>Home </router-link></li>
      
       <li class="nav-links"><router-link to="/favourites">Favourites <i class="pi pi-heart-fill"></i></router-link></li>
-      <li class="nav-links">Beats</li>
-      <li class="nav-links">Songs</li>
       <li class="nav-links">Search <i class="pi pi-search"></i></li>
       <li v-if="currentUser.isLoggedIn" class="nav-links">Welcome, {{ currentUser.name }}</li>
       <li v-if="currentUser.isLoggedIn" class="nav-links">

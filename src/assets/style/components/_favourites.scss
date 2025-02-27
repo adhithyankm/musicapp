@@ -1,0 +1,108 @@
+@use "./variables" as vars;
+
+.favorites {
+    margin: 5% auto;
+    width: 80%;
+    text-align: center;
+  
+    h1 {
+      color: vars.$Neon;
+      font-size: vars.$font-size-xl;
+      margin-bottom: vars.$base-margin;
+    }
+  
+    .empty-message {
+      color: vars.$error;
+      font-size: vars.$font-size-lg;
+    }
+  
+    .list {
+      display: flex;
+      flex-direction: column;
+      gap: vars.$base-margin;
+    }
+  
+    .item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: vars.$darkgrey;
+      padding: vars.$base-padding;
+      border-radius: vars.$base-border-radius;
+      box-shadow: vars.$base-box-shadow;
+  
+      .item-image-container {
+        flex: 0 0 80px;
+        margin-right: vars.$base-margin;
+        position: relative;
+  
+        .item-image {
+          max-width: 40px;
+          height: 50px;
+          border-radius: vars.$base-border-radius * 0.5;
+          margin-bottom: vars.$base-margin;
+          transition: opacity 0.3s ease-in-out;
+        }
+  
+        .play-button {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: vars.$black;
+          color: vars.$white;
+          border: none;
+          border-radius: 50%;
+          width: 30px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out;
+  
+          &:hover {
+            background-color: vars.$Neon;
+          }
+  
+          i {
+            font-size: vars.$font-size-lg;
+          }
+        }
+  
+        &:hover .play-button {
+          opacity: 1;
+        }
+      }
+  
+      .item-info {
+        flex: 1;
+        text-align: left;
+  
+        h3 {
+          color: vars.$white;
+          font-size: vars.$font-size-lg;
+          margin: 0;
+        }
+  
+        p {
+          color: vars.$BrightCyan;
+          font-size: vars.$font-size-sm;
+        }
+      }
+  
+      .remove-button {
+        background-color: transparent;
+        border: none;
+        color: vars.$error;
+        font-size: vars.$font-size-lg;
+        cursor: pointer;
+        transition: color 0.3s ease-in-out;
+  
+        &:hover {
+          color: vars.$Neon;
+        }
+      }
+    }
+  }

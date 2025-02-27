@@ -12,6 +12,7 @@
   top: 0;
   left: 0;
   width: 100%;
+  border-bottom: 2px solid #F5F7FA;
 
   .logo {
     display: flex;
@@ -25,7 +26,7 @@
       font-style: oblique;
       font-weight: bold;
       font-size: larger;
-      color: rgb(39, 11, 64);
+      color: vars.$Neon;
       margin-left: 0.5rem;
     }
   }
@@ -50,15 +51,18 @@
       color: white;
       cursor: pointer;
       transition: background-color 0.3s;
+      a{
+        color: white;
+      }
       &:hover {
-        background-color: rgb(46, 43, 43);
+        background-color: vars.$gray;
       }
       button {
         background-color: vars.$primary;
         color: white;
         border: none;
         &:hover {
-          background-color: rgb(46, 43, 43);
+        background-color: vars.$gray;
         }
       }
     }
@@ -115,8 +119,8 @@
 }
 
 .landingpage {
-  min-height: 100vh;
-  background-color: vars.$white;
+  height: 100%;
+  background-color: vars.$white !important;
   color: vars.$black;
   .landing-header {
     position: fixed;

@@ -11,6 +11,7 @@ import Button from 'primevue/button';
 import router from './router'
 import Toast  from 'primevue/toast'
 import ToastService  from 'primevue/toastservice'
+import store from './store'
 
 const app = createApp(App)
 app.component('Toast',Toast)
@@ -26,5 +27,6 @@ app.use(PrimeVue, {
       }
   }
 })
+app.use(store)
 app.use(ToastService)
 app.mount('#app')
