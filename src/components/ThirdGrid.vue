@@ -20,7 +20,6 @@
         </div>
       </div>
     </div>
-
     <div class="topsongs">
       <h1>Top Songs</h1>
       <div class="list">
@@ -43,30 +42,20 @@
     </div>
   </div>
 </template>
-
 <script setup>
-import store from '@/store';
-
+import store from '@/store'
 const props = defineProps({
   beats: Array,
   music: Array,
-  togglePlay: Function, // Passed as a prop from the parent component
-});
-
+  togglePlay: Function, 
+})
 const toggleLike = (item, type) => {
-  console.log("Toggling Like for:", item, "Type:", type);
-  store.commit("toggleLike", { ...item, type });
-  console.log(store.getters.likedSongs);
-};
-
+  console.log("Toggling Like for:", item, "Type:", type)
+  store.commit("toggleLike", { ...item, type })
+  console.log(store.getters.likedSongs)
+}
 const isLiked = (item, type) => {
-  return store.getters.isLiked(item, type);
-};
+  return store.getters.isLiked(item, type)
+}
 </script>
 
-
-<style scoped>
-.liked {
-  color: red !important;
-}
-</style>

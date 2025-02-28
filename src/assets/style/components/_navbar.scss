@@ -1,27 +1,22 @@
 @use "./variables" as vars;
-
 .navbar {
-
   background-color: vars.$primary;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: vars.$base-padding; 
+  padding: vars.$base-padding;
   position: fixed;
   z-index: 1000;
   top: 0;
   left: 0;
   width: 100%;
   border-bottom: 2px solid #F5F7FA;
-
   .logo {
     display: flex;
     align-items: center;
-
     .img-logo {
       width: 40px;
     }
-
     .logo-name {
       font-style: oblique;
       font-weight: bold;
@@ -35,7 +30,7 @@
     cursor: pointer;
     .pi {
       font-size: 24px;
-      color: white;
+      color: vars.$white;
     }
   }
   .header-nav-list {
@@ -48,21 +43,21 @@
       border-radius: vars.$base-border-radius;
       font-weight: bold;
       font-size: medium;
-      color: white;
+      color: vars.$white;
       cursor: pointer;
       transition: background-color 0.3s;
-      a{
-        color: white;
+      a {
+        color: vars.$white;
       }
       &:hover {
         background-color: vars.$gray;
       }
       button {
         background-color: vars.$primary;
-        color: white;
+        color: vars.$white;
         border: none;
         &:hover {
-        background-color: vars.$gray;
+          background-color: vars.$gray;
         }
       }
     }
@@ -71,15 +66,13 @@
     .hamburger {
       display: block;
       cursor: pointer;
-      position: relative; 
-      z-index: 20; 
-    
+      position: relative;
+      z-index: 20;
       .pi {
         font-size: 24px;
-        color: white;
+        color: vars.$white;
       }
     }
-  
     .header-nav-list {
       position: absolute;
       top: 0;
@@ -94,11 +87,9 @@
       box-shadow: vars.$base-box-shadow;
       z-index: 11;
       overflow: hidden;
-  
       visibility: hidden;
       opacity: 0;
       pointer-events: none;
-  
       &.active {
         display: flex;
         transform: translateX(0);
@@ -107,7 +98,6 @@
         pointer-events: auto;
         transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease-in;
       }
-  
       .nav-links {
         width: 100%;
         text-align: center;
@@ -115,11 +105,10 @@
       }
     }
   }
-  
 }
 
 .landingpage {
-  height: 100%;
+  height: 100% !important;
   background-color: vars.$white !important;
   color: vars.$black;
   .landing-header {
@@ -136,41 +125,34 @@
       padding: vars.$base-padding vars.$base-margin;
       max-width: 1200px;
       margin: 0 auto;
-
       .logo {
         display: flex;
         align-items: center;
         gap: vars.$base-margin;
-
         .img-logo {
           height: 40px;
           width: auto;
         }
-
         .logo-name {
           font-size: vars.$font-size-lg;
           font-weight: bold;
           color: vars.$primary;
         }
       }
-
       .header-nav-list {
         display: flex;
         list-style: none;
         margin: 0;
         padding: 0;
-
         .nav-links {
           margin: vars.$base-margin;
           padding: vars.$base-padding;
           border-radius: vars.$base-border-radius;
           font-weight: bold;
-
           a {
             text-decoration: none;
             color: vars.$purple;
             transition: color 0.3s ease;
-
             &:hover {
               color: vars.$Neon;
             }
@@ -179,119 +161,70 @@
       }
     }
   }
-
   .landing-content {
     padding: calc(vars.$base-padding * 4) vars.$base-margin vars.$base-margin;
     max-width: 1200px;
     margin: 60px auto;
-
-    @media (min-width: 768px) {
-      display: flex;
-      align-items: center;
-      gap: vars.$base-margin * 2;
-      padding-top: calc(vars.$base-padding * 6);
-    }
-
     .landing-left {
-      @media (min-width: 768px) {
-        width: 50%;
-      }
-
       .contentimage {
         max-width: 100%;
         height: auto;
         border-radius: vars.$base-border-radius;
         margin-bottom: vars.$base-margin;
-
-        @media (min-width: 768px) {
-          margin-bottom: vars.$base-margin * 2;
-        }
       }
-
       .landing-title {
         font-size: vars.$font-size-xl;
         color: vars.$purple;
         margin: 5px 0;
         line-height: 1;
-
-        @media (min-width: 768px) {
-          font-size: vars.$font-size-xxl;
-        }
       }
-
       .landing-subtitle {
         font-size: vars.$base-font-size;
         color: vars.$gray;
         margin: vars.$base-margin 0;
         line-height: 1.5;
-
-        @media (min-width: 768px) {
-          font-size: vars.$font-size-lg;
-        }
       }
     }
-
     hr {
       border: none;
       height: vars.$base-border-thickness;
       background-color: vars.$gray;
       margin: vars.$base-margin 0;
-
-      @media (min-width: 768px) {
-        display: none; // Hide horizontal rule on larger screens
-      }
     }
-
     .sign-up {
-      @media (min-width: 768px) {
-        width: 50%;
-        margin-top: -120px;
-      }
-
       .signup-title {
         font-size: vars.$font-size-lg;
         color: vars.$primary;
         margin: vars.$base-margin 0;
-
-        @media (min-width: 768px) {
-          font-size: vars.$font-size-xl;
-        }
       }
-
       form {
         display: flex;
         flex-direction: column;
         gap: vars.$base-margin;
-
         .input-group {
           display: flex;
           flex-direction: column;
-
           label {
-            margin-bottom: vars.$base-padding ;
+            margin-bottom: vars.$base-padding;
             color: vars.$purple;
             font-weight: 500;
           }
-
           input {
             padding: vars.$base-padding;
             border: vars.$base-border-thickness solid vars.$gray;
             border-radius: vars.$base-border-radius;
             font-size: vars.$base-font-size;
-
             &:focus {
               border-color: vars.$Neon;
               outline: none;
             }
           }
-
           small {
             color: vars.$error;
-            margin-top: vars.$base-padding ;
+            margin-top: vars.$base-padding;
             font-size: vars.$font-size-sm;
           }
         }
-
         button {
           padding: vars.$base-padding;
           background-color: vars.$Neon;
@@ -301,10 +234,39 @@
           font-size: vars.$base-font-size;
           cursor: pointer;
           transition: background-color 0.3s ease;
-
           &:hover {
             background-color: vars.$purple;
           }
+        }
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    .landing-content {
+      display: flex;
+      align-items: center;
+      gap: vars.$base-margin * 2;
+      padding-top: calc(vars.$base-padding * 6);
+      .landing-left {
+        width: 50%;
+        .contentimage {
+          margin-bottom: vars.$base-margin * 2;
+        }
+        .landing-title {
+          font-size: vars.$font-size-xxl;
+        }
+        .landing-subtitle {
+          font-size: vars.$font-size-lg;
+        }
+      }
+      hr {
+        display: none; 
+      }
+      .sign-up {
+        width: 50%;
+        margin-top: -120px;
+        .signup-title {
+          font-size: vars.$font-size-xl;
         }
       }
     }

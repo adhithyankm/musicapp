@@ -39,5 +39,5 @@ defineProps({
   beats: Array,
   music: Array,
   togglePlay: Function,
-});
+})
 </script>

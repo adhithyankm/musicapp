@@ -12,7 +12,6 @@ import router from './router'
 import Toast  from 'primevue/toast'
 import ToastService  from 'primevue/toastservice'
 import store from './store'
-
 const app = createApp(App)
 app.component('Toast',Toast)
 app.component('Card',Card)
