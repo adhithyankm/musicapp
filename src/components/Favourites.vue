@@ -37,7 +37,7 @@ const isPlaying=ref(false)
 const audioPlayer=ref(null)
 const removeLike=(song)=>store.commit("toggleLike",song)
 const togglePlay=(song)=>{
-  if(!song.audioSrc)return console.error("No audio URL found for:",song)
+  if(!song.audioSrc)return 
   if(audioPlayer.value.paused){
     audioPlayer.value.src=song.audioSrc
     audioPlayer.value.play()

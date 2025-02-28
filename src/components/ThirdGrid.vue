@@ -50,9 +50,7 @@ const props = defineProps({
   togglePlay: Function, 
 })
 const toggleLike = (item, type) => {
-  console.log("Toggling Like for:", item, "Type:", type)
   store.commit("toggleLike", { ...item, type })
-  console.log(store.getters.likedSongs)
 }
 const isLiked = (item, type) => {
   return store.getters.isLiked(item, type)
